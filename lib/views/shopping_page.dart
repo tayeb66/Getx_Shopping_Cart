@@ -37,16 +37,16 @@ class ShoppingPage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          '',
+                                          '${controller.products.value[index].productName}',
                                           style: TextStyle(fontSize: 20),
                                         ),
                                         Text(
-                                            '',
+                                            '${controller.products.value[index].productDesc}',
                                             style: TextStyle(fontSize: 20)),
                                       ],
                                     ),
                                     Text(
-                                        '',
+                                        '\$${controller.products.value[index].productPrice}',
                                         style: TextStyle(fontSize: 20)),
                                   ],
                                 ),
