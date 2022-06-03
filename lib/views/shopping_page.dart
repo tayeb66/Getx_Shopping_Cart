@@ -16,7 +16,10 @@ class ShoppingPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.teal,
         elevation: 0.0,
-        title: Text('Items',textScaleFactor: 1.5,),
+        title: Text(
+          'Items',
+          textScaleFactor: 1.5,
+        ),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -58,11 +61,12 @@ class ShoppingPage extends StatelessWidget {
                                   ],
                                 ),
                                 ElevatedButton(
-                                    onPressed: () {
-                                      cartController.addToCartItem(
-                                          controller.products.value[index]);
-                                    },
-                                    child: Text('Add to cart'))
+                                  onPressed: () {
+                                    cartController.addToCartItem(
+                                        controller.products.value[index]);
+                                  },
+                                  child: Text('Add to cart'),
+                                )
                               ]),
                         ),
                       );
@@ -71,16 +75,30 @@ class ShoppingPage extends StatelessWidget {
                 },
               ),
             ),
-            GetX<CartController>(
-              builder: ((controller) {
+
+            /// Using GetBuilder
+            GetBuilder<CartController>(
+              builder: (controller) {
                 return Text(
-                  'Total item: \$ ${controller.totalPrice}',
+                  'Total price: \$ ${controller.testAmount}',
                   textScaleFactor: 2,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 );
-              }),
+              },
             ),
+
+            /// Using GetX
+            // GetX<CartController>(
+            //   builder: ((controller) {
+            //     return Text(
+            //       'Total item: \$ ${controller.totalPrice}',
+            //       textScaleFactor: 2,
+            //       style: TextStyle(
+            //           fontWeight: FontWeight.bold, color: Colors.white),
+            //     );
+            //   }),
+            // ),
             SizedBox(
               height: 100,
             ),
@@ -89,6 +107,8 @@ class ShoppingPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
+
+        /// Using GetX
         label: GetX<CartController>(
           builder: (controller) {
             return Text(

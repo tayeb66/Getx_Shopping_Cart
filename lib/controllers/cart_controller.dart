@@ -11,7 +11,14 @@ class CartController extends GetxController {
   /// Items length
   int get itemLength => cartItems.length;
 
+  /// For GetBuilder
+  var testAmount = 0.0;
+
   void addToCartItem(Product product) {
     cartItems.add(product);
+
+    /// for GetBuilder
+    testAmount = totalPrice;
+    update();
   }
 }
