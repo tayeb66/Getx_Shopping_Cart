@@ -36,6 +36,8 @@ class ShoppingController extends GetxController{
           productName: 'ThirdProd'),
     ];
 
+    /// assign the productResult
+    /// We call products.value for items info
     products.value = productResult;
   }
 }
