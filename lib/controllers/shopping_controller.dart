@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:learn_getx/models/product.dart';
 
 class ShoppingController extends GetxController{
-  /// bind UI with ModelClass
+  /// all ListData of Product Class Store in products
   var products = <Product>[].obs;
 
   @override
@@ -11,6 +11,7 @@ class ShoppingController extends GetxController{
     fetchData();
   }
 
+  /// This method using fetch data to homePage
   void fetchData() async{
     await Future.delayed(Duration(seconds: 1));
 
