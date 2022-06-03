@@ -77,16 +77,26 @@ class ShoppingPage extends StatelessWidget {
             ),
 
             /// Using GetBuilder
-            GetBuilder<CartController>(
-              builder: (controller) {
-                return Text(
-                  'Total price: \$ ${controller.testAmount}',
+            // GetBuilder<CartController>(
+            //   builder: (controller) {
+            //     return Text(
+            //       'Total price: \$ ${controller.testAmount}',
+            //       textScaleFactor: 2,
+            //       style: TextStyle(
+            //           color: Colors.white, fontWeight: FontWeight.bold),
+            //     );
+            //   },
+            // ),
+
+            /// Using Obx()
+            /// In Obx() don't need controller
+            /// just use instance of controller object
+            Obx(() => Text(
+                  'Total Price: \$ ${cartController.totalPrice}',
                   textScaleFactor: 2,
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                );
-              },
-            ),
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                )),
 
             /// Using GetX
             // GetX<CartController>(
